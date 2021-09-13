@@ -41,6 +41,11 @@ $string['auth_method:google'] = 'Google Auth';
 $string['auth_method:microsoft'] = 'Microsoft Auth';
 
 
+$string['form:course_shortname']  = 'Course short name:';
+$string['form:labid'] = 'Lab id:';
+$string['form:url']   = 'URL';
+$string['form:edu_url_option']   = 'EDU URL Option';
+
 
 $string['tenant_id'] = 'Tenant ID';
 $string['tenant_id:desc'] = 'A unique tenant code given by eduLAB';

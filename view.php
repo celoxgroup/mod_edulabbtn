@@ -43,13 +43,26 @@ require_course_login($course, false, $cm);
 $context = context_module::instance($cm->id);
 require_capability('mod/edulabbtn:view', $context);
 
-$redirectTo = 'https://{tenant_id}.portal.edulab.cloud/go/{lab_id}?username={user}&auth={auth_method}';
 
+
+$url = "https://{tenant_id}.portal.edulab.cloud/go/";
+$eduUrlOptions = !empty($edulabbtn->edu_url_option) ? $edulabbtn->edu_url_option : "";
+switch ($eduUrlOptions) {
+  case "edu_course_shortname":
+    $url = $url.  $course->shortname;
+    break;
+  case "edu_labid":
+    $url = $url. $edulabbtn->lab_id;
+    break;
+  case "edu_url":
+    $url;
+    break;
+}
+$redirectTo = "{$url}?username={user}&auth={auth_method}";
 $config = get_config('edulabbtn');
-
 $redirectTo = str_replace(
-    ['{tenant_id}', '{auth_method}', '{lab_id}', '{user}'],
-    [$config->tenant_id, $config->auth_method,  $edulabbtn->lab_id, $USER->username],
+    ['{tenant_id}', '{auth_method}', '{user}'],
+    [$config->tenant_id, $config->auth_method, $USER->username],
     $redirectTo
 );
 @header('Location: '.$redirectTo);

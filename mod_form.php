@@ -23,7 +23,10 @@
 
 defined('MOODLE_INTERNAL') || die;
 
+global $PAGE;
+
 require_once ($CFG->dirroot.'/course/moodleform_mod.php');
+$PAGE->requires->js(new moodle_url($CFG->wwwroot.'/mod/edulabbtn/assets/js/edulab.js'),'init');
 
 class mod_edulabbtn_mod_form extends moodleform_mod {
     function definition() {
@@ -37,6 +40,15 @@ class mod_edulabbtn_mod_form extends moodleform_mod {
         $mform->setType('name', PARAM_TEXT);
         $mform->addRule('name', null, 'required', null, 'client');
         $mform->addRule('name', get_string('maximumchars', '', 255), 'maxlength', 255, 'client');
+
+
+        $radioarray = array();
+        $radioarray[] = $mform->createElement('radio', 'edu_url_option', null, get_string("form:course_shortname", "edulabbtn"), 'edu_course_shortname');
+        $radioarray[] = $mform->createElement('radio', 'edu_url_option', null, get_string("form:labid", "edulabbtn"), 'edu_labid');
+        $radioarray[] = $mform->createElement('radio', 'edu_url_option', null, get_string("form:url", "edulabbtn"), 'edu_url');
+        $mform->addGroup($radioarray, 'edu_url_option', get_string("form:edu_url_option", "edulabbtn"), ' ', false);
+        $mform->setDefault('edu_url_option', 'edu_url');
+
 
         $mform->addElement('text', 'lab_id', get_string('lab_id', 'edulabbtn'), array('size'=>'9'));
         $mform->setType('lab_id', PARAM_TEXT);
