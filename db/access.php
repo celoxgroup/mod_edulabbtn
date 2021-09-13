@@ -13,9 +13,13 @@
 //
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
-
 /**
- * @package    edulabbtn
+ * Define capabilities for the lgr report.
+ *
+ * @package     mod_edulabbtn
+ * @category    upgrade
+ * @copyright   2021 celoxgroup <jerry.stefik@celoxgroup.com.au>
+ * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 defined('MOODLE_INTERNAL') || die;
