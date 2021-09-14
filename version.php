@@ -22,7 +22,7 @@
  */
 defined('MOODLE_INTERNAL') || die();
 
-$plugin->version = 2020083010153;
-$plugin->release   = '2.2';
+$plugin->version = 2021091417581;
+$plugin->release   = '2.3';
 $plugin->requires = 2016052304.04;
 $plugin->component = "mod_edulabbtn";
