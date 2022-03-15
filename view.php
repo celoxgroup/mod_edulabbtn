@@ -45,7 +45,7 @@ require_capability('mod/edulabbtn:view', $context);
 
 
 
-$url = "https://{tenant_id}.portal.edulab.cloud/app/edulab/labs/go/";
+$url = "https://{tenant_id}.portal.edulab.cloud/app/edulab/labs/go/{lab_id}";
 $eduUrlOptions = !empty($edulabbtn->edu_url_option) ? $edulabbtn->edu_url_option : "";
 switch ($eduUrlOptions) {
   case "edu_course_shortname":
